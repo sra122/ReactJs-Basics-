@@ -12,18 +12,24 @@ class App extends React.Component {
 			content = <h1>Content</h1>
 		}
 		
+		var details = {
+			name : "John",
+			hobbies : ["Swimming", "Dancing"]
+		}
 		
 			
 		
 		return(
 			<div className="container">
 				<h1>Hello!</h1>
-				<Header name={"Sravan"} college={"Fh Kiel"}/> {/*Props*/}
-				<Home/>	
+				<Header name={"Sravan"} college={"Fh Kiel"} detail={details}/> {/*Props*/}
+				<Home detail = {details}>
+				<p>Children Can be passed in between Class Tag</p>
+				</Home>	
 				<div>{2*24}</div> {/*Line break can be created by using div tag*/} 
 				<div>{"Sravan"}</div>
 				{content}
-				{1==2 ? "Yes":"No"}
+				{1==2 ? "Yes":"No"} {/* If condition using brackets*/}
 			</div>
 			);
 	}
