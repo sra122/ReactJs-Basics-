@@ -7,16 +7,10 @@ export class Home extends React.Component {
 		return(
 			<div>
 				<h1>Home</h1>
-				<h1>{this.props.detail.name}</h1>
-				<hr/>
-				{this.props.children}
+				
+				
 			</div>
 			);
 	}
 }
 
-Home.propTypes = {
-	name: PropTypes.string,
-	hobbies: PropTypes.array,
-	children: PropTypes.element.isRequired
-}
