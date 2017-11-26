@@ -8,7 +8,9 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			name: "John"
+			name: "John",
+			newName: "Sravan",
+			college: "FH"
 		}
 	}
 	onGreet() {
@@ -21,13 +23,26 @@ class App extends React.Component {
 		});
 	}
 
-	
+	changeCollege(newCollegeName) {
+		this.setState({
+			college: newCollegeName.target.value
+		});
+	}
+
 
 	render() {
 		return(
 			<div className="container">
-				<Header name={this.state.name} initialAge={24} greet={this.onGreet} changeName = {this.changeName.bind(this)}/> {/*Props*/}
-				<Home  />
+				<Header name={this.state.name} 
+						initialAge={24} 
+						greet={this.onGreet} 
+						changeName={this.changeName.bind(this)}
+						changeByInput = {this.state.name}/> {/*Props*/}
+				<Home  printName= {this.state.newName} changeCollege={this.state.college}/><br/>
+				<input type="text" 
+						value={this.state.college} 
+						onChange={(event) => this.changeCollege(event)} />
+
 			</div>
 			);
 	}

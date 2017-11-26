@@ -7,7 +7,7 @@ export class Header extends React.Component {
 		super();
 		this.state = {
 			age : props.initialAge,
-			name: "Sravan"
+			name: props.changeByInput
 		}
 	}
 
@@ -18,16 +18,25 @@ export class Header extends React.Component {
 	}
 
 	changeTitle() {
-		this.props.changeName(this.state.name)
+		this.props.changeName(this.state.name);
 	}
+
+	changeByInput(event) {
+		this.setState({
+			name : event.target.value
+		});
+	}
+	
 	render() {
 		return(
 			<div>
 				<p>Hello { this.props.name }</p>
 				<p>Your Age is { this.state.age }</p>
+				<input type="text" value={this.state.name} onChange={(event) =>this.changeByInput(event)}/>
 				<button onClick={ () => this.addAge() }>Increase age</button>
 				<button onClick={this.props.greet}>Greet</button>
-				<button onClick={ this.changeTitle.bind(this) }>Change Name</button>
+				<button onClick={this.changeTitle.bind(this)}>Change Name</button>
+
 			</div>
 			);
 	}
